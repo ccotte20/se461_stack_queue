@@ -101,6 +101,9 @@ public:
 
 private:
   // add member variable here
+  T * data_;
+  size_t top_;
+  size_t size_;
 };
 
 // include the inline files
