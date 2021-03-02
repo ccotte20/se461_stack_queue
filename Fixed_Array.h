@@ -41,7 +41,7 @@ public:
    * Initializing constructor. Fills the contents of the 
    * array with the specified \a fill value.
    *
-   * @param[in]      fill       The file value.
+   * @param[in]      fill       The fill value.
    */
   Fixed_Array (T fill);
 
