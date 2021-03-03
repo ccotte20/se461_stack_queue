@@ -93,8 +93,9 @@ public:
 
 private:
   // add member variable here
-  Dynamic_Array<T> data_;
-  size_t top_;
+  Fixed_Array<T> data_;
+  size_t front_;
+  size_t rear_;
   size_t size_;
 };
 

@@ -19,5 +19,5 @@ template <typename T>
 inline
 bool Queue <T>::is_empty (void) const
 {
-	
+	return size_==0;
 }

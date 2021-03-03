@@ -36,11 +36,5 @@ template <typename T>
 inline
 bool Stack <T>::is_empty (void) const
 {
-	if(top==-1)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
+	return size_==0;
 }

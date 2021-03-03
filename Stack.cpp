@@ -5,6 +5,10 @@
 //
 // Stack
 //
+#include "Stack.h"
+
+#define DEFAULT_RESIZE 5
+
 template <typename T>
 Stack <T>::Stack (void) : data_(), top_(-1), size_(0)
 {
@@ -15,7 +19,7 @@ Stack <T>::Stack (void) : data_(), top_(-1), size_(0)
 // Stack
 //
 template <typename T>
-Stack <T>::Stack (const Stack & stack) : data_(stack.data_), top_(stack.top()), size_(stack.size())
+Stack <T>::Stack (const Stack & stack) : data_(stack.data_), top_(stack.top_), size_(stack.size())
 {
 	
 }
@@ -35,7 +39,7 @@ Stack <T>::~Stack (void)
 template <typename T>
 void Stack <T>::push (T element)
 {
-	if(top_<=(size_-1))
+	if(top_<=(data_.size()-1))
 	{
 		top_++;
 		size_++;
@@ -43,7 +47,7 @@ void Stack <T>::push (T element)
 	}
 	else
 	{
-		data_.resize(size_+=5);
+		data_.resize(data_.size()+=DEFAULT_RESIZE);
 		top_++;
 		size_++;
 		data_[top]=element;
