@@ -5,6 +5,7 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
+#include "Array.h"
 #include <exception>
 
 /**
@@ -101,7 +102,7 @@ public:
 
 private:
   // add member variable here
-  T * data_;
+  Dynamic_Array<T> data_;
   size_t top_;
   size_t size_;
 };

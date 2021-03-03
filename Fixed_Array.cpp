@@ -5,9 +5,8 @@
 //
 // Fixed_Array
 //
-
 template <typename T, size_t N>
-Fixed_Array <T, N>::Fixed_Array (void) : data_(new T[N]), cur_size_(N), max_size_(N)
+Fixed_Array <T, N>::Fixed_Array (void) : Array<T>(N)
 {
 
 }
@@ -16,12 +15,9 @@ Fixed_Array <T, N>::Fixed_Array (void) : data_(new T[N]), cur_size_(N), max_size
 // Fixed_Array
 //
 template <typename T, size_t N>
-Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, N> & arr) : data_(new T[N]), cur_size_(N), max_size_(N)
+Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, N> & arr) : Array<T>(arr)
 {
-	for(int i=0; i<this->cur_size_; i++)
-	{
-		this->data_[i]=arr[i];
-	}
+	
 }
 
 //
@@ -29,24 +25,18 @@ Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, N> & arr) : data_(new T[N
 //
 template <typename T, size_t N>
 template <size_t M>
-Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, M> & arr) : data_(new T[M]), cur_size_(M), max_size_(M)
+Fixed_Array <T, N>::Fixed_Array (const Fixed_Array <T, M> & arr) : Array<T>(arr)
 {
-	N=M;
+	
 }
 
 //
 // Fixed_Array
 //
 template <typename T, size_t N>
-Fixed_Array <T, N>::Fixed_Array (T fill)
+Fixed_Array <T, N>::Fixed_Array (T fill) : Array<T>(N, fill)
 {
-	if(N > 0)
-	{
-		this->data_ = new T[N];
-		this->cur_size_ = N;
-		this->max_size_ = N;
-		this->fill(fill);
-	}
+	
 }
 
 //
@@ -55,7 +45,7 @@ Fixed_Array <T, N>::Fixed_Array (T fill)
 template <typename T, size_t N>
 Fixed_Array <T, N>::~Fixed_Array (void)
 {
-	delete [] data_;
+	
 }
 
 //
@@ -82,12 +72,12 @@ template <typename T, size_t N>
 template <size_t M>
 const Fixed_Array <T, N> & Fixed_Array <T, N>::operator = (const Fixed_Array <T, M> & rhs)
 {
-if(this!= &rhs)
+	if(this!= &rhs)
 	{
 		delete [] data_;
 		N=M;
-		this->cur_size_ = N
-		this->max_size_ = N
+		this->cur_size_ = N;
+		this->max_size_ = N;
 		this->data_ = new T[N];
 		for(int i=0; i<this->cur_size_; i++)
 		{

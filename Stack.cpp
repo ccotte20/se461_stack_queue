@@ -6,7 +6,7 @@
 // Stack
 //
 template <typename T>
-Stack <T>::Stack (void)
+Stack <T>::Stack (void) : data_(), top_(-1), size_(0)
 {
 
 }
@@ -15,9 +15,9 @@ Stack <T>::Stack (void)
 // Stack
 //
 template <typename T>
-Stack <T>::Stack (const Stack & stack)
+Stack <T>::Stack (const Stack & stack) : data_(stack.data_), top_(stack.top()), size_(stack.size())
 {
-
+	
 }
 
 //
@@ -26,7 +26,7 @@ Stack <T>::Stack (const Stack & stack)
 template <typename T>
 Stack <T>::~Stack (void)
 {
-
+	
 }
 
 //
@@ -35,7 +35,19 @@ Stack <T>::~Stack (void)
 template <typename T>
 void Stack <T>::push (T element)
 {
-
+	if(top_<=(size_-1))
+	{
+		top_++;
+		size_++;
+		data_[top]=element;
+	}
+	else
+	{
+		data_.resize(size_+=5);
+		top_++;
+		size_++;
+		data_[top]=element;
+	}
 }
 
 //
@@ -44,7 +56,16 @@ void Stack <T>::push (T element)
 template <typename T>
 void Stack <T>::pop (void)
 {
-
+	if(this->is_Empty())
+	{
+		throw empty_exception();
+	}
+	else
+	{
+		data_[top]=NULL;
+		top_--;
+		size_--:
+	}
 }
 
 //
@@ -53,7 +74,12 @@ void Stack <T>::pop (void)
 template <typename T>
 const Stack <T> & Stack <T>::operator = (const Stack & rhs)
 {
-
+	if(this!= &rhs)
+	{
+		data_=rhs.data_;
+		top_=rhs.top_;
+		size_=rhs.size();
+	}
 }
 
 //
@@ -62,5 +88,7 @@ const Stack <T> & Stack <T>::operator = (const Stack & rhs)
 template <typename T>
 void Stack <T>::clear (void)
 {
-
+	data_.resize(0);
+	top_=-1;
+	size_=0;
 }

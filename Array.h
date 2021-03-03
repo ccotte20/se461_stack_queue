@@ -2,6 +2,7 @@
 // I pledge that I have neither given nor 
 // received any help on this assignment.
 // Clark Otte
+// This is the base array class that houses most of the methods for fixed and dynamic array
 #ifndef _ARRAY_H_
 #define _ARRAY_H_
 
@@ -108,20 +109,6 @@ public:
   void set (size_t index, T value);
 
   /**
-   * Set a new size for the array. If \a new_size is less than the current
-   * size, then the array is truncated. If \a new_size if greater then the
-   * current size, then the array is made larger and the new elements are
-   * not initialized to anything. If \a new_size is the same as the current
-   * size, then nothing happens.
-   *
-   * The array's original contents are preserved regardless of whether the 
-   * array's size is either increased or decreased.
-   *
-   * @param[in]       new_size              New size of the array
-   */
-  void resize (size_t new_size);
-
-  /**
    * Locate the specified character in the array. The index of the first
    * occurrence of the character is returned. If the character is not
    * found in the array, then -1 is returned.
@@ -172,7 +159,7 @@ public:
    */
   void fill (T element);
 
-private:
+protected: //instead of private change to protected instead of copy over method and give access to cur_size_, max_size_, and data_;
   /// Pointer to the actual data.
   T * data_;
 
