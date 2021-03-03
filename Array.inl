@@ -12,6 +12,8 @@ size_t Array <T>::size (void) const
 	return cur_size_;
 }
 
+// Dr. Ryan: We don't want a Max Size on our Base Array class.
+
 //
 // max_size
 //

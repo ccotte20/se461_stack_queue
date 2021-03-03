@@ -65,6 +65,8 @@ const Fixed_Array <T, N> & Fixed_Array <T, N>::operator = (const Fixed_Array <T,
 	}
 }
 
+// Dr. Ryan: In theory we don't even need the below overload as the template will take care of it.
+
 //
 // operator =
 //

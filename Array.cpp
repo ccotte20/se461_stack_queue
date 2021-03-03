@@ -7,6 +7,9 @@
 #include <stdexcept>         // for std::out_of_bounds exception
 
 #define DEFAULT_SIZE 10
+
+// Dr. Ryan: If this is your Base Array you wouldn't want a Max Size here.
+
 //
 // Array
 //
@@ -156,6 +159,7 @@ void Array <T>::set (size_t index, T value)
 template  <typename T>
 int Array <T>::find (T value) const
 {
+	// Dr. Ryan: Need to handle our exception here - otherwise it gets back to the end-user.
 	find(value, 0);
 }
 

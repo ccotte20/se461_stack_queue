@@ -4,6 +4,7 @@
 // Clark Otte
 #include "Queue.h"
 
+// Dr. Ryan: We need to include what data_ is here - the Dynamic_Array?
 template <typename T>
 Queue <T>::Queue (void) : data_(), front_(-1), rear_(data_.size()-1), size_(0)
 {

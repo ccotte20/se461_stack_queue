@@ -165,6 +165,8 @@ protected: //instead of private change to protected instead of copy over method 
 
   /// Current size of the array.
   size_t cur_size_;
+  
+  // Dr. Ryan: We don't want a Max Size on our Base Array class.
 
   /// Maximum size of the array.
   size_t max_size_;

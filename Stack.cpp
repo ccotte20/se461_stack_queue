@@ -9,6 +9,8 @@
 
 #define DEFAULT_RESIZE 5
 
+// Dr. Ryan: We need to leverage our Array here - Composition.
+
 template <typename T>
 Stack <T>::Stack (void) : data_(), top_(-1), size_(0)
 {

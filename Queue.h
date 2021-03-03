@@ -92,6 +92,7 @@ public:
   void clear (void);
 
 private:
+	// Dr. Ryan: Why do we want to use a Fixed_Array here and not a Dynamic_Array?
   // add member variable here
   Fixed_Array<T> data_;
   size_t front_;
