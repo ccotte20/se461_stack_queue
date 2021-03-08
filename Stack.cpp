@@ -5,7 +5,6 @@
 //
 // Stack
 //
-#include "Stack.h"
 
 #define DEFAULT_RESIZE 5
 

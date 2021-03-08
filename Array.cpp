@@ -3,8 +3,6 @@
 // received any help on this assignment.
 // Clark Otte
 
-#include "Array.h"
-
 #define DEFAULT_SIZE 10
 
 // Dr. Ryan: If this is your Base Array you wouldn't want a Max Size here.
@@ -13,7 +11,7 @@
 // Array
 //
 template <typename T>
-Array <T>::Array (void): data_(new T[DEFAULT_SIZE]), cur_size_(DEFAULT_SIZE)
+Array<T>::Array (void): data_(new T[DEFAULT_SIZE]), cur_size_(DEFAULT_SIZE)
 {
 
 }
@@ -22,7 +20,7 @@ Array <T>::Array (void): data_(new T[DEFAULT_SIZE]), cur_size_(DEFAULT_SIZE)
 // Array (size_t)
 //
 template <typename T>
-Array <T>::Array (size_t length)
+Array<T>::Array (size_t length)
 {
 	if(length > 0)
 	{
@@ -35,7 +33,7 @@ Array <T>::Array (size_t length)
 // Array (size_t, char)
 //
 template <typename T>
-Array <T>::Array (size_t length, T fill)
+Array<T>::Array (size_t length, T fill)
 {
 	if(length > 0)
 	{
@@ -49,7 +47,7 @@ Array <T>::Array (size_t length, T fill)
 // Array (const Array &)
 //
 template <typename T>
-Array <T>::Array (const Array & arr) : data_(new T[arr.size()]), cur_size_(arr.size())
+Array<T>::Array (const Array & arr) : data_(new T[arr.size()]), cur_size_(arr.size())
 {
 	for(int i=0; i<this->cur_size_; i++)
 	{
@@ -61,7 +59,7 @@ Array <T>::Array (const Array & arr) : data_(new T[arr.size()]), cur_size_(arr.s
 // ~Array
 //
 template <typename T>
-Array <T>::~Array (void)
+Array<T>::~Array (void)
 {
 	delete [] data_;
 }
@@ -70,7 +68,7 @@ Array <T>::~Array (void)
 // operator =
 //
 template <typename T>
-const Array <T> & Array <T>::operator = (const Array & rhs)
+const Array<T> & Array<T>::operator = (const Array & rhs)
 {
 	if(this!= &rhs)
 	{
@@ -89,7 +87,7 @@ const Array <T> & Array <T>::operator = (const Array & rhs)
 // operator []
 //
 template <typename T>
-T & Array <T>::operator [] (size_t index)
+T & Array<T>::operator [] (size_t index)
 {
 	if(0 <= index && index < this->cur_size_)
 	{
@@ -105,7 +103,7 @@ T & Array <T>::operator [] (size_t index)
 // operator [] 
 //
 template <typename T>
-const T & Array <T>::operator [] (size_t index) const
+const T & Array<T>::operator [] (size_t index) const
 {
 	if(0 <= index && index < this->cur_size_)
 	{
@@ -121,7 +119,7 @@ const T & Array <T>::operator [] (size_t index) const
 // get
 //
 template <typename T>
-T Array <T>::get (size_t index) const
+T Array<T>::get (size_t index) const
 {
 	if(0 <= index && index < this->cur_size_)
 	{
@@ -137,7 +135,7 @@ T Array <T>::get (size_t index) const
 // set
 //
 template <typename T>
-void Array <T>::set (size_t index, T value)
+void Array<T>::set (size_t index, T value)
 {
 	if(0 <= index && index < this->cur_size_)
 	{
@@ -153,7 +151,7 @@ void Array <T>::set (size_t index, T value)
 // find (char)
 //
 template  <typename T>
-int Array <T>::find (T value) const
+int Array<T>::find (T value) const
 {
 	// Dr. Ryan: Need to handle our exception here - otherwise it gets back to the end-user.
 	// Fixed: used try/catch statement to handle out of range exception thrown by indexed find
@@ -171,7 +169,7 @@ int Array <T>::find (T value) const
 // find (char, size_t) 
 //
 template <typename T>
-int Array <T>::find (T val, size_t start) const
+int Array<T>::find (T val, size_t start) const
 {
 	if(0 <= start && start < this->cur_size_)
 	{
@@ -195,7 +193,7 @@ int Array <T>::find (T val, size_t start) const
 // operator ==
 //
 template <typename T>
-bool Array <T>::operator == (const Array & rhs) const
+bool Array<T>::operator == (const Array & rhs) const
 {
 	if(this == &rhs)
 	{
@@ -222,7 +220,7 @@ bool Array <T>::operator == (const Array & rhs) const
 // operator !=
 //
 template <typename T>
-bool Array <T>::operator != (const Array & rhs) const
+bool Array<T>::operator != (const Array & rhs) const
 {
 	return !(*this==rhs);
 }
@@ -231,7 +229,7 @@ bool Array <T>::operator != (const Array & rhs) const
 // fill
 //
 template <typename T>
-void Array <T>::fill (T value)
+void Array<T>::fill (T value)
 {
 	for(int i=0; i<this->cur_size_; i++)
 	{

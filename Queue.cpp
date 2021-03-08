@@ -2,7 +2,6 @@
 // I pledge that I have neither given nor 
 // received any help on this assignment.
 // Clark Otte
-#include "Queue.h"
 
 #define DEFAULT_RESIZE 5
 // Dr. Ryan: We need to include what data_ is here - the Dynamic_Array?

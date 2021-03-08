@@ -5,7 +5,7 @@
 #ifndef _QUEUE_H_
 #define _QUEUE_H_
 
-#include "Array.h"
+#include "Dynamic_Array.h"
 #include <exception>
 
 /**
