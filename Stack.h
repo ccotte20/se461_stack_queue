@@ -5,7 +5,7 @@
 #ifndef _STACK_H_
 #define _STACK_H_
 
-#include "Array.h"
+#include "Dynamic_Array.h"
 #include <exception>
 
 /**

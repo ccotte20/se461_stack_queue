@@ -9,8 +9,11 @@
 
 #define DEFAULT_RESIZE 5
 
+// Dr. Ryan: We need to leverage our Array here - Composition.
+// Fixed: initialized Dynamic_Array array
+
 template <typename T>
-Stack <T>::Stack (void) : data_(), top_(-1), size_(0)
+Stack <T>::Stack (void) : data_(Dynamic_Array<T>()), top_(-1), size_(0)
 {
 
 }
@@ -39,19 +42,13 @@ Stack <T>::~Stack (void)
 template <typename T>
 void Stack <T>::push (T element)
 {
-	if(top_<=(data_.size()-1))
-	{
-		top_++;
-		size_++;
-		data_[top]=element;
-	}
-	else
+	if(top_>(data_.size()-1))
 	{
 		data_.resize(data_.size()+=DEFAULT_RESIZE);
-		top_++;
-		size_++;
-		data_[top]=element;
 	}
+	top_++;
+	size_++;
+	data_[top]=element;
 }
 
 //
@@ -68,7 +65,7 @@ void Stack <T>::pop (void)
 	{
 		data_[top]=NULL;
 		top_--;
-		size_--:
+		size_--;
 	}
 }
 

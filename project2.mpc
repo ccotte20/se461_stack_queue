@@ -1,0 +1,29 @@
+project (project2) {
+	exename = a2
+	
+	Source_Files {
+		driver.cpp
+		Array.cpp
+		Dynamic_Array.cpp
+		Fixed_Array.cpp
+		Queue.cpp
+		Stack.cpp
+	}
+	
+	Header_Files {
+		Array.h
+		Dynamic_Array.h
+		Fixed_Array.h
+		Queue.h
+		Stack.h
+	}
+	
+	Inline_Files {
+		Array.inl
+		Dynamic_Array.inl
+		Queue.inl
+		Stack.inl
+	}
+}
+
+// to use 'thomas% mwc.pl -type make' then 'thomas% make' then 'a1'

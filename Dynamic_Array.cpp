@@ -6,16 +6,16 @@
 // Dynamic_Array
 //
 template <typename T>
-Dynamic_Array <T, N>::Dynamic_Array (void) : Array<T>()
+Dynamic_Array <T>::Dynamic_Array (void) : Array<T>()//max_size_(DEFAULT_SIZE) Remake dynamic array to hold max_size_
 {
-
+	max_size_(this->cur_size_);
 }
 
 //
 // Dynamic_Array
 //
 template <typename T>
-Dynamic_Array <T, N>::Dynamic_Array (const Dynamic_Array <T, N> & arr) : Array<T>(arr)
+Dynamic_Array <T>::Dynamic_Array (const Dynamic_Array <T> & arr) : Array<T>(arr), max_size_(arr.max_size_)
 {
 	
 }
@@ -24,24 +24,46 @@ Dynamic_Array <T, N>::Dynamic_Array (const Dynamic_Array <T, N> & arr) : Array<T
 // Dynamic_Array
 //
 template <typename T>
-Dynamic_Array <T, N>::Dynamic_Array (T fill) : Array<T>()
+Dynamic_Array <T>::Dynamic_Array (T fill) : Array<T>()
 {
+	max_size_(this->cur_size_);
 	this->fill(fill);
 }
 
 //
 // ~Dynamic_Array
 //
-template <typename T, size_t N>
-Dynamic_Array <T, N>::~Dynamic_Array (void)
+template <typename T>
+Dynamic_Array <T>::~Dynamic_Array (void)
 {
 	
 }
+
+//
+// operator =
+//
+template <typename T>
+const Dynamic_Array <T> & Dynamic_Array <T>::operator = (const Dynamic_Array & rhs)
+{
+	if(this!= &rhs)
+	{
+		delete [] this->data_;
+		this->cur_size_ = rhs.size();
+		this->max_size_ = rhs.max_size();
+		this->data_ = new T[this->cur_size_];
+		
+		for(int i=0; i<this->cur_size_; i++)
+		{
+			this->data_[i]=rhs[i];
+		}
+	}
+}
+
 //
 // resize
 //
 template <typename T>
-void Array <T>::resize (size_t new_size)
+void Dynamic_Array <T>::resize (size_t new_size)
 {
 	if (new_size == this->cur_size_)
 	{

@@ -7,7 +7,10 @@
 #define _ARRAY_H_
 
 #include <cstring>          // for size_t definition
-
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <stdexcept> 
 /**
  * @class Array
  *
@@ -165,9 +168,9 @@ protected: //instead of private change to protected instead of copy over method 
 
   /// Current size of the array.
   size_t cur_size_;
-
-  /// Maximum size of the array.
-  size_t max_size_;
+  
+  // Dr. Ryan: We don't want a Max Size on our Base Array class.
+  // Fixed: Moved max size to dynamic array definition
 };
 
 #include "Array.inl"

@@ -7,14 +7,12 @@
 #include "Stack.h"
 #include "Queue.h"
 
-#include <iostream>
-#include <stdexcept>
-#include <cstdlib>
+
 
 //
 // main
 //
 int main (int argc, char * argv [])
 {
-
+	return 0;
 }

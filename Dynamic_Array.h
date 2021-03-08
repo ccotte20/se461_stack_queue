@@ -27,14 +27,6 @@ public:
 	 * @param[in]      arr        Source array
 	 */
   Dynamic_Array (const Dynamic_Array <T> & arr);
-	
-  /**
-   * Initializing constructor. The source array can be of any size
-   * as long as they are of the same type.
-   *
-   * @param[in]      arr        Source array
-   */
-  Dynamic_Array (const Dynamic_Array <T> & arr);
 
   /**
    * Initializing constructor. Fills the contents of the 
@@ -46,6 +38,21 @@ public:
 
   /// Destructor.
   ~Dynamic_Array (void);
+  
+  /**
+   * Assignment operation
+   *
+   * @param[in]       rhs      Right-hand side of equal sign
+   * @return          Reference to self
+   */
+  const Dynamic_Array & operator = (const Dynamic_Array & rhs);
+  
+  /**
+   * Retrieve the maximum size of the array.
+   *
+   * @return          The maximum size
+   */
+  size_t max_size (void) const;
   
   /**
    * Set a new size for the array. If \a new_size is less than the current
@@ -60,6 +67,10 @@ public:
    * @param[in]       new_size              New size of the array
    */
   void resize (size_t new_size);
+  
+protected:
+  /// Maximum size of the array.
+  size_t max_size_;
 };
 
 // include the inline files

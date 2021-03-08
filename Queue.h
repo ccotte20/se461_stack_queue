@@ -70,8 +70,9 @@ public:
    * Remove the bottom-most element from the queue.
    *
    * @exception      empty_exception    The queue is empty.
+   * @return		 The bottom-most element.
    */
-  void dequeue (void);
+  T dequeue (void);
 
   /**
    * Test if the queue is empty
@@ -92,8 +93,10 @@ public:
   void clear (void);
 
 private:
+	// Dr. Ryan: Why do we want to use a Fixed_Array here and not a Dynamic_Array?
+	// Fixed: Changed to dynamic array and changed enqueue to allow for dynamic array.
   // add member variable here
-  Fixed_Array<T> data_;
+  Dynamic_Array<T> data_;
   size_t front_;
   size_t rear_;
   size_t size_;

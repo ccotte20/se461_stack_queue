@@ -4,8 +4,11 @@
 // Clark Otte
 #include "Queue.h"
 
+#define DEFAULT_RESIZE 5
+// Dr. Ryan: We need to include what data_ is here - the Dynamic_Array?
+// Fixed: initialized Dynamic_Array
 template <typename T>
-Queue <T>::Queue (void) : data_(), front_(-1), rear_(data_.size()-1), size_(0)
+Queue <T>::Queue (void) : data_(Dynamic_Array<T>()), front_(-1), rear_((data_.size()-1)), size_(0)
 {
 
 }
@@ -34,7 +37,11 @@ Queue <T>::~Queue (void)
 template <typename T>
 void Queue <T>::enqueue (T element)
 {
-	rear_=`(rear_+1) % data_.size();
+	if((size_+1)>data_.cur_size())
+	{
+		data_.resize(data_.size()+=DEFAULT_RESIZE);
+	}
+	rear_=(rear_+1) % data_.size();
 	data_[rear_]=element;
 	size_++;
 }

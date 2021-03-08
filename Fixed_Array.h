@@ -65,7 +65,6 @@ public:
 };
 
 // include the inline files
-#include "Fixed_Array.inl"
 
 // include the source file since template class
 #include "Fixed_Array.cpp"

@@ -4,14 +4,16 @@
 // Clark Otte
 
 #include "Array.h"
-#include <stdexcept>         // for std::out_of_bounds exception
 
 #define DEFAULT_SIZE 10
+
+// Dr. Ryan: If this is your Base Array you wouldn't want a Max Size here.
+// Fixed: Moved Max size to dynamic array
 //
 // Array
 //
 template <typename T>
-Array <T>::Array (void): data_(new T[DEFAULT_SIZE]), cur_size_(DEFAULT_SIZE), max_size_(DEFAULT_SIZE)
+Array <T>::Array (void): data_(new T[DEFAULT_SIZE]), cur_size_(DEFAULT_SIZE)
 {
 
 }
@@ -26,7 +28,6 @@ Array <T>::Array (size_t length)
 	{
 		this->data_ = new T[length];
 		this->cur_size_ = length;
-		this->max_size_ = length;
 	}
 }
 
@@ -40,7 +41,6 @@ Array <T>::Array (size_t length, T fill)
 	{
 		this->data_ = new T[length];
 		this->cur_size_ = length;
-		this->max_size_ = length;
 		this->fill(fill);
 	}
 }
@@ -49,7 +49,7 @@ Array <T>::Array (size_t length, T fill)
 // Array (const Array &)
 //
 template <typename T>
-Array <T>::Array (const Array & array) : data_(new T[arr.size()]), cur_size_(arr.size()), max_size_(arr.max_size())
+Array <T>::Array (const Array & arr) : data_(new T[arr.size()]), cur_size_(arr.size())
 {
 	for(int i=0; i<this->cur_size_; i++)
 	{
@@ -76,7 +76,6 @@ const Array <T> & Array <T>::operator = (const Array & rhs)
 	{
 		delete [] data_;
 		this->cur_size_ = rhs.size();
-		this->max_size_ = rhs.max_size();
 		this->data_ = new T[this->cur_size_];
 		
 		for(int i=0; i<this->cur_size_; i++)
@@ -156,7 +155,16 @@ void Array <T>::set (size_t index, T value)
 template  <typename T>
 int Array <T>::find (T value) const
 {
-	find(value, 0);
+	// Dr. Ryan: Need to handle our exception here - otherwise it gets back to the end-user.
+	// Fixed: used try/catch statement to handle out of range exception thrown by indexed find
+	try
+	{
+		find(value, 0);
+	}
+	catch(std::out_of_range oor)
+	{
+		std::cout<<"Out of Range"<<std::endl;
+	}
 }
 
 //
