@@ -25,7 +25,7 @@ T Stack <T>::top (void) const
 	}
 	else
 	{
-		return data_[top];
+		return data_[top_];
 	}
 }
 

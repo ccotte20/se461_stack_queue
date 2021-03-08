@@ -174,6 +174,7 @@ protected: //instead of private change to protected instead of copy over method 
 };
 
 #include "Array.inl"
+
 #include "Array.cpp"
 
 #endif   // !defined _ARRAY_H_

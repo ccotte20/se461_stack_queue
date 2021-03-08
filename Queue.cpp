@@ -7,7 +7,7 @@
 // Dr. Ryan: We need to include what data_ is here - the Dynamic_Array?
 // Fixed: initialized Dynamic_Array
 template <typename T>
-Queue <T>::Queue (void) : data_(Dynamic_Array<T>()), front_(-1), rear_((data_.size()-1)), size_(0)
+Queue <T>::Queue (void) : data_(Dynamic_Array<T>()), front_(0), rear_((data_.size()-1)), size_(0)
 {
 
 }
@@ -36,9 +36,9 @@ Queue <T>::~Queue (void)
 template <typename T>
 void Queue <T>::enqueue (T element)
 {
-	if((size_+1)>data_.cur_size())
+	if((size_+1)>data_.size())
 	{
-		data_.resize(data_.size()+=DEFAULT_RESIZE);
+		data_.resize(data_.size()+DEFAULT_RESIZE);
 	}
 	rear_=(rear_+1) % data_.size();
 	data_[rear_]=element;
@@ -51,16 +51,16 @@ void Queue <T>::enqueue (T element)
 template <typename T>
 T Queue <T>::dequeue (void)
 {
-	if(this->is_Empty())
+	if(this->is_empty())
 	{
 		throw empty_exception();
 	}
 	else
 	{
 		T temp = data_[front_];
-		data_[front_] = NULL;
 		front_ = (front_+1) % data_.size();
 		size_--;
+		return temp;
 	}
 }
 
@@ -85,10 +85,8 @@ const Queue <T> & Queue <T>::operator = (const Queue & rhs)
 template <typename T>
 void Queue <T>::clear (void)
 {
-	for(int i=0; i<data_.size(); i++)
-	{
-		data_[i]=NULL;
-	}
-	front_=-1;
+	data_.resize(0);
+	front_=0;
+	rear_=-1;
 	size_=0;
 }

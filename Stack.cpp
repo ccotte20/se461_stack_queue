@@ -43,11 +43,11 @@ void Stack <T>::push (T element)
 {
 	if(top_>(data_.size()-1))
 	{
-		data_.resize(data_.size()+=DEFAULT_RESIZE);
+		data_.resize(data_.size()+DEFAULT_RESIZE);
 	}
 	top_++;
 	size_++;
-	data_[top]=element;
+	data_[top_]=element;
 }
 
 //
@@ -56,13 +56,12 @@ void Stack <T>::push (T element)
 template <typename T>
 void Stack <T>::pop (void)
 {
-	if(this->is_Empty())
+	if(this->is_empty())
 	{
 		throw empty_exception();
 	}
 	else
 	{
-		data_[top]=NULL;
 		top_--;
 		size_--;
 	}
@@ -89,6 +88,7 @@ template <typename T>
 void Stack <T>::clear (void)
 {
 	data_.resize(0);
+	data_.resize(DEFAULT_RESIZE);
 	top_=-1;
 	size_=0;
 }

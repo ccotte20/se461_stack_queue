@@ -1,8 +1,15 @@
 project (project2) {
-	exename = a2
+	exename = Composition
+	
+	specific (make) {
+		compile_flags += -std=c++11
+	}
 	
 	Source_Files {
 		driver.cpp
+	}
+	
+	Template_Files {
 		Array.cpp
 		Dynamic_Array.cpp
 		Fixed_Array.cpp
